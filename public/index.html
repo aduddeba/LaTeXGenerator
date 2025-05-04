@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI to LaTeX Converter</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- MathJax for LaTeX rendering -->
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <h1>LaTeX Generator</h1>
+
+    <form id="descForm">
+      <textarea
+        id="description"
+        placeholder="Enter equation or description"
+      ></textarea>
+      <br />
+      <button type="submit">Convert</button>
+    </form>
+    <h3>Output:</h3>
+    <div id="renderedLatex">waiting for input</div>
+    <h3>Code:</h3>
+    <pre id="outputLatex">waiting for input</pre>
+    <script src="script.js"></script>
+  </body>
+</html>
