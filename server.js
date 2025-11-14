@@ -22,11 +22,15 @@ app.post("/api/chat", async (req, res) => {
     const prompt = `Only include the LaTeX output that corresponds with the given description. Format the latex code as follows:
                                                                                                 $$
                                                                                                 [Equation here]
-                                                                                                $$: ${userCode}`;
+                                                                                                $$ ${userCode}. 
+    Do not include any explanations or additional text outside of the latex code. For example, if the description is "the quadratic formula", respond with:
+                                                                                                $$
+                                                                                                x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}
+                                                                                                $$`;
 
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "llama3-70b-8192",
+      model: "llama-3.3-70b-versatile",
       temperature: 0.7,
       max_completion_tokens: 500,
     });
