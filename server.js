@@ -19,7 +19,10 @@ app.post("/api/chat", async (req, res) => {
   try {
     const userCode = req.body.message;
 
-    const prompt = `only include the LaTeX output that corresponds with the given description: ${userCode}`;
+    const prompt = `Only include the LaTeX output that corresponds with the given description. Format the latex code as follows:
+                                                                                                $$
+                                                                                                [Equation here]
+                                                                                                $$: ${userCode}`;
 
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
